@@ -71,7 +71,7 @@ const allProjects = [
     github: "github.com/Ahmad-jama/full-netflix-clone",
   },
   {
-    image: "https://ahmad-portfolio-v2.netlify.app/assets/N-home.PNG",
+    image: "capture",
     description:
       "i build this landing page from design i see it on figma to challenge myself to make it pixel perfect and i succeed on that",
     title: "Landing page",
