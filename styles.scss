@@ -1,0 +1,631 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+// $primary-color: #f6364a;
+$primary-color: rgb(248 109 112);
+$secondery-color: rgb(62 60 85);
+$background: #2c333e;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  padding: 0 30px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: rgb(40, 44, 51);
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+  font-family: Poppins sans-serif;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.square {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 900px;
+  right: -400px;
+  border: 15px solid $primary-color;
+  transform: rotate(360deg);
+}
+
+.circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: -410px;
+  background: $secondery-color;
+  top: 10px;
+  border-radius: 50%;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 4rem;
+  h1 {
+    font-size: 2.2rem;
+    margin-top: 0.4rem;
+  }
+  p {
+    color: $primary-color;
+    font-size: 1.2rem;
+  }
+}
+// start header
+
+header {
+  padding-top: 1rem;
+  height: 60px;
+  background-color: rgb(47 46 65);
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 700px) {
+      ul {
+        flex-direction: column;
+        background-color: $secondery-color;
+        height: 100vh;
+        position: relative;
+        z-index: 2000;
+        top: -1rem;
+        right: -30px;
+        justify-content: space-evenly;
+      }
+    }
+    ul {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+
+      li {
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 1.2rem;
+          transition: color 0.2s ease-in-out;
+          position: relative;
+          cursor: pointer;
+
+          &::after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: transparent;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transition: background-color 0.3s ease-in-out;
+          }
+
+          &:hover {
+            color: $primary-color;
+            &::after {
+              background-color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+    .logo {
+      flex: 1;
+      span {
+        background-color: $primary-color;
+        border-radius: 50%;
+        padding: 5px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// end header
+
+.line {
+  width: 0;
+  height: 1px;
+  background-color: white;
+}
+
+// start hero section
+
+.hero {
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  position: relative;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .info {
+    flex: 1;
+    // for animation purpes
+    * {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      span {
+        color: $primary-color;
+      }
+    }
+    h2 {
+      font-size: clamp(1rem, 5vw, 2rem);
+      margin: 0.6rem 0 1rem;
+      color: #cacccc;
+    }
+    p {
+      margin-bottom: 1rem;
+      max-width: 500px;
+      font-size: 1.2rem;
+    }
+  }
+
+  .image {
+    flex: 1;
+    opacity: 0;
+    transform: scale(0.5);
+    img {
+      width: 100%;
+    }
+  }
+}
+// end hero section
+
+// start about me secton
+
+.about {
+  background-color: $background;
+  padding: 5rem 0;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    .about-me {
+      flex: 1;
+
+      h2 {
+        font-size: clamp(1rem, 5vw, 2rem);
+        margin: 0.6rem 0 1rem;
+        color: $primary-color;
+        margin-bottom: 1.3rem;
+      }
+      > p {
+        color: white;
+        max-width: 500px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+      .about-info {
+        div {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          margin: 1rem 0;
+          i {
+            color: $primary-color;
+          }
+          p {
+            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+
+            span {
+              font-weight: normal;
+              color: $primary-color;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    .skills {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 380px;
+      .circle-containers {
+        width: 82%;
+        height: 120%;
+        border-radius: 50%;
+        border: 10px solid white;
+        background-color: transparent;
+        box-shadow: 0 0 10px white;
+        position: relative;
+        .main-circle {
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          border: 5px solid $primary-color;
+          background-color: white;
+          font-weight: bold;
+          box-shadow: 0 0 5px white;
+          color: $secondery-color;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          p {
+            font-size: clamp(1.3rem, 5vw, 2.3rem);
+            text-align: center;
+          }
+        }
+        .skill-circle {
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          border: 5px solid white;
+          box-shadow: 0 0 10px white;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &::before {
+            background-color: white;
+            color: black;
+            padding: 4px 8px;
+            position: absolute;
+            top: -35px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+          }
+          &:hover::before {
+            opacity: 1;
+          }
+        }
+        .num-1 {
+          top: -14%;
+          left: 36%;
+          &::before {
+            content: "html";
+          }
+        }
+        .num-2 {
+          top: 5%;
+          left: -5%;
+          &::before {
+            content: "testing";
+          }
+        }
+        .num-3 {
+          top: 48%;
+          left: -14%;
+          &::before {
+            content: "nextjs";
+          }
+        }
+        .num-4 {
+          top: 81%;
+          left: 12%;
+          &::before {
+            content: "react";
+          }
+        }
+        .num-5 {
+          top: 80%;
+          left: 60%;
+          &::before {
+            content: "typescript";
+          }
+        }
+        .num-6 {
+          top: 43%;
+          left: 83%;
+          &::before {
+            content: "javascript";
+          }
+        }
+        .num-7 {
+          top: 5%;
+          left: 74%;
+          &::before {
+            content: "css";
+          }
+        }
+        i {
+          font-size: 5rem;
+        }
+        .html {
+          background: #eb6217;
+        }
+        .css {
+          background-color: #2091eb;
+        }
+        .js {
+          background-color: #f7d625;
+        }
+        .react {
+          background-color: #5ed3f3;
+        }
+        .typescript {
+          background-color: #2f74c0;
+        }
+        .testing {
+          background-color: #c03b13;
+        }
+        .next {
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
+// end about me
+
+// start projects
+
+.projects {
+  padding: 7rem 0;
+  .container-box {
+    margin-top: 5 rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+    position: relative;
+    .box {
+      padding: 1rem;
+      background-color: $secondery-color;
+      border-radius: 7px;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: black;
+      }
+      img {
+        max-width: 100%;
+        border-radius: 3px;
+      }
+      h2 {
+        margin: 1rem 0;
+      }
+      & > p {
+        color: $primary-color;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+    }
+    .show {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .box-info {
+      position: fixed;
+      width: 80%;
+      background-color: $background;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 3rem;
+      border-radius: 10px;
+      opacity: 0;
+      visibility: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      transition: opacity 0.5s ease-in-out;
+      z-index: 101;
+      img {
+        max-width: 100%;
+      }
+      .info {
+        h1 {
+          margin: 0 0 15px;
+        }
+        p {
+          margin-bottom: 10px;
+          cursor: pointer;
+
+          a {
+            color: $primary-color;
+          }
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 17px;
+        right: 28px;
+        font-size: 1.3rem;
+        color: $primary-color;
+        cursor: pointer;
+      }
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      opacity: 0;
+      visibility: hidden;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+    }
+  }
+}
+
+// end projects
+
+// start services
+
+.services {
+  padding: 7rem 0;
+  .container-box {
+    margin-top: 5 rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+    .box {
+      padding: 1rem;
+      background-color: $secondery-color;
+      border-radius: 7px;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+
+      .icon {
+        font-size: 2rem;
+        background: $primary-color;
+        width: fit-content;
+        margin: auto;
+        border-radius: 50%;
+        color: $secondery-color;
+        padding: 10px;
+        transition: all 0.4s ease-in-out;
+      }
+      h2 {
+        margin: 1rem 0 1.3rem;
+      }
+      p {
+        line-height: 1.5;
+        font-size: 1.2rem;
+      }
+      &:hover {
+        background-color: black;
+        color: $primary-color;
+        transform: translateY(-15px) scale(1.04);
+        .icon {
+          background-color: white;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+// end services
+
+// start contact
+
+.contact {
+  padding: 7rem 0;
+
+  background-color: $background;
+  .boxs {
+    display: flex;
+    gap: 2rem;
+
+    .contact_message {
+      background-color: $secondery-color;
+      flex: 0.4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      flex-direction: column;
+
+      p {
+        width: 274px;
+        line-height: 1.7;
+        text-align: center;
+        font-size: 1.3rem;
+      }
+      img {
+        width: 260px;
+      }
+    }
+    form {
+      flex: 1;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 3rem;
+      // justify-content: space-around;
+      gap: 1rem;
+
+      h1 {
+        font-size: 2.3rem;
+        color: $primary-color;
+        text-align: center;
+      }
+      input {
+        padding: 15px 20px;
+        font-size: 1.1rem;
+      }
+      textarea {
+        padding: 15px 20px;
+        font-size: 1.1rem;
+      }
+      button {
+        width: fit-content;
+        padding: 0.6rem 2rem;
+      }
+    }
+  }
+}
+
+// end contact
+
+footer {
+  background-color: $secondery-color;
+  padding: 2rem;
+  p {
+    text-align: center;
+    font-size: 1.3rem;
+    span {
+      color: $primary-color;
+    }
+  }
+}
+
+// components
+
+.btn {
+  background: $primary-color;
+  color: white;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  transition: background-color 0.3s ease-in-out;
+  transform-origin: center;
+  position: relative;
+  cursor: pointer;
+
+  span {
+    position: relative;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0);
+  }
+  &:hover::before {
+    transform: scale(1);
+  }
+}
