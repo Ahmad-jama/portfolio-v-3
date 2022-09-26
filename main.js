@@ -71,14 +71,15 @@ const allProjects = [
     github: "github.com/Ahmad-jama/full-netflix-clone",
   },
   {
-    image: "capture",
+    image:
+      "https://raw.githubusercontent.com/Ahmad-jama/portfolio-v-3/main/assets/Capture.png",
     description:
       "i build this landing page from design i see it on figma to challenge myself to make it pixel perfect and i succeed on that",
     title: "Landing page",
     supTitle: "website design",
     used: " css, react, firebase",
-    liveSite: "a-movie-site.netlify.app/",
-    github: "github.com/Ahmad-jama/full-netflix-clone",
+    liveSite: "travel-jadoo.netlify.app/",
+    github: "github.com/Ahmad-jama/travel-landing-page",
   },
 ];
 
@@ -158,4 +159,17 @@ document.addEventListener("click", (e) => {
     overlay.classList.remove("show");
     document.querySelector("html").style.overflow = "auto";
   }
+});
+
+// open navbar and close nav
+
+document.querySelector(".menu").addEventListener("click", () => {
+  document.querySelector("ul").style.right = "-30px";
+});
+document.querySelector(".close").addEventListener("click", () => {
+  document.querySelector("ul").style.right = "-400px";
+});
+
+document.querySelector("ul").addEventListener("click", () => {
+  document.querySelector("ul").style.right = "-400px";
 });

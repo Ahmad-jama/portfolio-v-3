@@ -37,6 +37,14 @@ a {
   right: -400px;
   border: 15px solid $primary-color;
   transform: rotate(360deg);
+  @media screen and (max-width: 700px) {
+    width: 200px;
+    height: 200px;
+  }
+  @media screen and (max-width: 400px) {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 .circle {
@@ -47,6 +55,14 @@ a {
   background: $secondery-color;
   top: 10px;
   border-radius: 50%;
+  @media screen and (max-width: 700px) {
+    width: 200px;
+    height: 200px;
+  }
+  @media screen and (max-width: 400px) {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 .title {
@@ -72,51 +88,51 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media screen and (max-width: 700px) {
-      ul {
-        flex-direction: column;
-        background-color: $secondery-color;
-        height: 100vh;
-        position: relative;
-        z-index: 2000;
-        top: -1rem;
-        right: -30px;
-        justify-content: space-evenly;
-      }
+    .menu {
+      display: none;
     }
-    ul {
+    & > div {
       flex: 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      list-style: none;
+      ul {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        transition: all 0.7s ease-in-out;
+        .close {
+          position: absolute;
+          top: 14px;
+          left: 12px;
+          font-size: 1.5rem;
+          display: none;
+        }
+        li {
+          a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.2s ease-in-out;
+            position: relative;
+            cursor: pointer;
 
-      li {
-        a {
-          text-decoration: none;
-          color: white;
-          font-size: 1.2rem;
-          transition: color 0.2s ease-in-out;
-          position: relative;
-          cursor: pointer;
-
-          &::after {
-            content: "";
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: transparent;
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transition: background-color 0.3s ease-in-out;
-          }
-
-          &:hover {
-            color: $primary-color;
             &::after {
-              background-color: $primary-color;
+              content: "";
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              background-color: transparent;
+              position: absolute;
+              bottom: -8px;
+              left: 50%;
+              transition: background-color 0.3s ease-in-out;
+            }
+
+            &:hover {
+              color: $primary-color;
+              &::after {
+                background-color: $primary-color;
+              }
             }
           }
         }
@@ -129,6 +145,27 @@ header {
         border-radius: 50%;
         padding: 5px;
         text-align: center;
+      }
+    }
+    @media screen and (max-width: 700px) {
+      ul {
+        flex-direction: column;
+        background-color: $secondery-color;
+        height: 100vh;
+        position: absolute;
+        z-index: 2000;
+        top: -1rem;
+        right: -400px;
+        width: 250px;
+        justify-content: space-evenly !important;
+        .close {
+          display: block !important;
+          color: red;
+        }
+      }
+      .menu {
+        display: block;
+        text-align: right;
       }
     }
   }
@@ -186,6 +223,9 @@ header {
     flex: 1;
     opacity: 0;
     transform: scale(0.5);
+    @media screen and (max-width: 700px) {
+      display: none;
+    }
     img {
       width: 100%;
     }
@@ -198,11 +238,14 @@ header {
 .about {
   background-color: $background;
   padding: 5rem 0;
+
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80vh;
+    flex-wrap: wrap;
+    gap: 3rem;
+
     .about-me {
       flex: 1;
 
@@ -224,6 +267,10 @@ header {
           gap: 10px;
           align-items: center;
           margin: 1rem 0;
+          width: 400px;
+          @media screen and (max-width: 400px) {
+            width: fit-content;
+          }
           i {
             color: $primary-color;
           }
@@ -246,10 +293,28 @@ header {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 380px;
+      height: 780px;
       .circle-containers {
-        width: 82%;
-        height: 120%;
+        width: 500px;
+        height: 500px;
+        @media screen and (max-width: 792px) {
+          width: 400px;
+          height: 400px;
+          .main-circle,
+          .skill-circle {
+            width: 120px !important;
+            height: 120px !important;
+          }
+        }
+        @media screen and (max-width: 500px) {
+          width: 300px;
+          height: 300px;
+          .main-circle,
+          .skill-circle {
+            width: 100px !important;
+            height: 100px !important;
+          }
+        }
         border-radius: 50%;
         border: 10px solid white;
         background-color: transparent;
@@ -365,12 +430,22 @@ header {
         }
         .typescript {
           background-color: #2f74c0;
+          overflow: hidden;
+          img {
+            max-width: 100%;
+            position: absolute;
+            top: -20px;
+            left: -5px;
+          }
         }
         .testing {
           background-color: #c03b13;
         }
         .next {
-          background-color: #000;
+          background-color: #fff;
+          img {
+            max-width: 100%;
+          }
         }
       }
     }
@@ -434,6 +509,7 @@ header {
       gap: 1rem;
       transition: opacity 0.5s ease-in-out;
       z-index: 101;
+
       img {
         max-width: 100%;
       }
@@ -458,6 +534,16 @@ header {
         font-size: 1.3rem;
         color: $primary-color;
         cursor: pointer;
+      }
+      @media screen and (max-width: 800px) {
+        grid-template-columns: 1fr;
+        width: 90%;
+
+        padding: 2rem;
+        span {
+          top: 10px;
+          right: 14px;
+        }
       }
     }
     .overlay {
@@ -533,10 +619,10 @@ header {
   .boxs {
     display: flex;
     gap: 2rem;
-
+    flex-wrap: wrap;
     .contact_message {
       background-color: $secondery-color;
-      flex: 0.4;
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -558,7 +644,7 @@ header {
       background-color: white;
       display: flex;
       flex-direction: column;
-      padding: 1rem 3rem;
+      padding: 1rem 2rem;
       // justify-content: space-around;
       gap: 1rem;
 
@@ -591,6 +677,7 @@ footer {
   p {
     text-align: center;
     font-size: 1.3rem;
+    font-size: clamp(1rem, 3vw, 1.4rem);
     span {
       color: $primary-color;
     }

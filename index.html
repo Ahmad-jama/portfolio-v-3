@@ -22,13 +22,21 @@
       <div class="container">
         <nav>
           <h1 class="logo"><span>AJ</span></h1>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <div>
+            <div class="menu">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul>
+              <div class="close">
+                <i class="fa-regular fa-circle-xmark"></i>
+              </div>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
@@ -105,13 +113,16 @@
               <i class="fa-solid fa-bug-slash"></i>
             </div>
             <div class="skill-circle num-3 next">
-              <i class="fa-brands fa-phoenix-framework"></i>
+              <img
+                src="assets/next-js-icon-512x512-zuauazrk_preview_rev_1.png"
+                alt="next"
+              />
             </div>
             <div class="skill-circle num-4 react">
               <i class="fa-brands fa-react"></i>
             </div>
             <div class="skill-circle num-5 typescript">
-              <i class="fa-brands fa-node-js"></i>
+              <img src="assets/typescript-icon.svg" alt="" />
             </div>
             <div class="skill-circle num-6 js">
               <i class="fa-brands fa-js"></i>
@@ -201,13 +212,7 @@
             <h1>Contact us</h1>
             <input type="text" placeholder="Your Name" />
             <input type="text" placeholder="Your Email " />
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Message"
-            ></textarea>
+            <textarea name="" id="" rows="10" placeholder="Message"></textarea>
             <button class="btn"><span>Send</span></button>
           </form>
         </div>
